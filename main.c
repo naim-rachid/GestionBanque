@@ -32,7 +32,7 @@ int menuOp() {
 	printf("\t------------------------------------------\n");
 	printf("\t-------- 1: Retrait ----------------------\n");
 	printf("\t-------- 2: Depot ------------------------\n");
-	printf("\t-------- 0: Retour au Menu Principal -----\n");
+	printf("\t-------- 0: Retour au Menu Principal ------\n");
 	printf("\t------------------------------------------\n");
 	printf("\t-->  ");
 	scanf("%d", &cOp);
