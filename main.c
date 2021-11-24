@@ -64,7 +64,7 @@ int menuAff() {
 void insererCompte(char tableComptes[][4][50]) {
 	char chaineSaisie[50];
 	printf("Entrez Vos infos (CIN puis Nom puis Prenom puis montant) : \n");
-	
+	int positionCinCompteRecherche;
 	N += 1; // N = 3 + 1; pour ajouter un seul compte
 	int position = N - 1; // position = 3;
 	for(int j = 0; j < 4; j++) {
@@ -79,8 +79,15 @@ void insererCompte(char tableComptes[][4][50]) {
 					break;
 		}
 		scanf("%s", &chaineSaisie);
-		strcpy(tableComptes[position][j], chaineSaisie);// [3][0];
-	}	
+		positionCinCompteRecherche = rechercherCompte(tableComptes, chaineSaisie);
+		if (positionCinCompteRecherche == 1) { // cin est déjà existé
+			printf("\t --> Le compte dont le CIN %s est deja existe !\n", chaineSaisie);
+			N -= 1;
+			break;
+		} else {
+			strcpy(tableComptes[position][j], chaineSaisie);// [3][0];
+		}
+	}		
 }
 // procédure d'insérer plusieurs comptes bancaires
 void insererListComptes(char tableComptes[][4][50], int nbrComptesInsere) {
